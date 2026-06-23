@@ -1,0 +1,5 @@
+# Ignore executables compiled from C++ files
+*.exe
+
+# Ignore VS Code directory
+.vscode/
