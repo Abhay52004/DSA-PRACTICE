@@ -16,7 +16,7 @@ Below is a summary of the questions solved in this directory.
 | **Q6** | [six.c++](./six.c++) | **Remove Consecutive Duplicates** | Removes consecutive duplicate characters from a string (e.g., `abaabaabbbbc` ➔ `ababac`) recursively. |
 | **Q7** | [seven.c++](./seven.c++) | **String Subsequences** | Generates all subsequences of a string recursively (using array storage and direct printing methods). |
 | **Q8** | [8th.c++](./8th.c++) | **Generate Valid Parentheses** | Generates all possible valid combinations of parentheses for a given pair count recursively. |
-| **Q9** | [9.c++](./9.c++) | **Equal a's and b's Permutations** | Generates all possible string permutations containing an equal number of `'a'`s and `'b'`s recursively. |
+| **Q9** | [9.c++](./9.c++) | **Equal a's and b's Permutations** | Generates all possible string permutations containing an equal number of `'a'`s and `'b'`s recursively and counts the total permutations. |
 
 ---
 
@@ -72,10 +72,11 @@ Below is a summary of the questions solved in this directory.
   * **Rule 2**: Add a close parenthesis `)` only if it does not violate validity (`open < close` which means more open parenthesis have been used than close parenthesis so far).
 
 ### Q9: Equal a's and b's Permutations (`9.c++`)
-* **Problem**: Generate all strings containing a specified equal number of `'a'`s and `'b'`s.
+* **Problem**: Generate all strings containing a specified equal number of `'a'`s and `'b'`s, and count the total number of permutations.
 * **Approach**:
-  * **Base Case**: If no `'a'`s or `'b'`s are left to place, print the built string.
-  * **Recursive Step**: Make recursive calls placing an `'a'` if any are left (`n1 > 0`), and a `'b'` if any are left (`n2 > 0`).
+  * **Permutation Tracking**: Pass a `count` variable by reference (`int &count`) to increment it each time a complete string is successfully printed.
+  * **Base Case**: If no `'a'`s or `'b'`s are left to place (`n1 == 0 && n2 == 0`), print the built string and increment `count++`.
+  * **Recursive Step**: Make recursive calls placing an `'a'` if any are left (`n1 > 0`), and a `'b'` if any are left (`n2 > 0`), passing the reference to `count` through each call.
 
 ---
 
