@@ -12,6 +12,7 @@ void dup(char b[] ){
         for(int i = 0 ; i< a ; i++){
             b[i+1] = b[i+2];
             
+            
         }
         dup(b);
         

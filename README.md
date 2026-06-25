@@ -14,6 +14,9 @@ Below is a summary of the questions solved in this directory.
 | **Q4** | [four.c++](./four.c++) | **Remove Character 'x'** | Removes all occurrences of the character `'x'` from a character array recursively. |
 | **Q5** | [five.c++](./five.c++) | **Replace Character with String** | Replaces every occurrence of a specified character with a custom string recursively. |
 | **Q6** | [six.c++](./six.c++) | **Remove Consecutive Duplicates** | Removes consecutive duplicate characters from a string (e.g., `abaabaabbbbc` ➔ `ababac`) recursively. |
+| **Q7** | [seven.c++](./seven.c++) | **String Subsequences** | Generates all subsequences of a string recursively (using array storage and direct printing methods). |
+| **Q8** | [8th.c++](./8th.c++) | **Generate Valid Parentheses** | Generates all possible valid combinations of parentheses for a given pair count recursively. |
+| **Q9** | [9.c++](./9.c++) | **Equal a's and b's Permutations** | Generates all possible string permutations containing an equal number of `'a'`s and `'b'`s recursively. |
 
 ---
 
@@ -54,6 +57,25 @@ Below is a summary of the questions solved in this directory.
 * **Approach**:
   * **Base Case**: If string length is `0` or `1`, return.
   * **Recursive Step**: If the first and second characters are the same (`b[0] == b[1]`), shift the rest of the string left to remove the duplicate and recurse on the same position. Otherwise, recurse on `b + 1`.
+
+### Q7: String Subsequences (`seven.c++`)
+* **Problem**: Find all subsequences of a given string.
+* **Approach**:
+  * **Method 1 (Array Storage)**: Recursively finds subsequences of the substring from index `1` to the end, then doubles the result size by prepending the first character to each subsequence.
+  * **Method 2 (Direct Printing)**: Space-optimized recursion. At each character, branch into two decisions: include it in the subsequence built so far (`tillnow + curr[0]`), or exclude it (`tillnow`).
+
+### Q8: Generate Valid Parentheses (`8th.c++`)
+* **Problem**: Generate all valid combinations of `n` pairs of open `(` and close `)` parentheses.
+* **Approach**:
+  * **State Tracking**: Keep track of remaining open and close parentheses.
+  * **Rule 1**: Add an open parenthesis `(` if any are left (`open > 0`).
+  * **Rule 2**: Add a close parenthesis `)` only if it does not violate validity (`open < close` which means more open parenthesis have been used than close parenthesis so far).
+
+### Q9: Equal a's and b's Permutations (`9.c++`)
+* **Problem**: Generate all strings containing a specified equal number of `'a'`s and `'b'`s.
+* **Approach**:
+  * **Base Case**: If no `'a'`s or `'b'`s are left to place, print the built string.
+  * **Recursive Step**: Make recursive calls placing an `'a'` if any are left (`n1 > 0`), and a `'b'` if any are left (`n2 > 0`).
 
 ---
 
