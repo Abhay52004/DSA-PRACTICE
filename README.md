@@ -1,6 +1,6 @@
 # DSA Practice (Recursion)
 
-Welcome to the **DSA Practice** repository! This folder contains a collection of Data Structures and Algorithms (DSA) problems solved in C++ using **recursion**.
+Welcome to the **DSA Practice** repository! This folder contains a collection of Data Structures and Algorithms (DSA) problems solved in C++ using **recursion** and **backtracking**.
 
 ## 📚 Table of Contents
 
@@ -17,6 +17,10 @@ Below is a summary of the questions solved in this directory.
 | **Q7** | [seven.c++](./seven.c++) | **String Subsequences** | Generates all subsequences of a string recursively (using array storage and direct printing methods). |
 | **Q8** | [8th.c++](./8th.c++) | **Generate Valid Parentheses** | Generates all possible valid combinations of parentheses for a given pair count recursively. |
 | **Q9** | [9.c++](./9.c++) | **Equal a's and b's Permutations** | Generates all possible string permutations containing an equal number of `'a'`s and `'b'`s recursively and counts the total permutations. |
+| **Q10** | [10.c++](./10.c++) | **String Subsequences (Enclosed)** | Generates and prints all subsequences of a string enclosed in curly braces `{}` recursively. |
+| **Q11** | [11.c++](./11.c++) | **String Power Set** | Generates all subsets of a string using backtracking and groups them by length. |
+| **Q12** | [12.c++](./12.c++) | **Integer Set Power Set** | Generates all subsets of an integer set using backtracking, formatted as sets and grouped by size. |
+| **Q13** | [13.c++](./13.c++) | **String Permutations** | Generates all unique permutations of a string using swap-based recursive backtracking. |
 
 ---
 
@@ -77,6 +81,29 @@ Below is a summary of the questions solved in this directory.
   * **Permutation Tracking**: Pass a `count` variable by reference (`int &count`) to increment it each time a complete string is successfully printed.
   * **Base Case**: If no `'a'`s or `'b'`s are left to place (`n1 == 0 && n2 == 0`), print the built string and increment `count++`.
   * **Recursive Step**: Make recursive calls placing an `'a'` if any are left (`n1 > 0`), and a `'b'` if any are left (`n2 > 0`), passing the reference to `count` through each call.
+
+### Q10: String Subsequences - Enclosed (`10.c++`)
+* **Problem**: Generate all subsequences of a string and format them inside curly braces `{}`.
+* **Approach**:
+  * Uses recursive array storage (similar to Q7 Method 1).
+  * In the driver program, outputs all generated subsequences wrapped in curly braces like `{abc}`.
+
+### Q11: String Power Set (`11.c++`)
+* **Problem**: Generate all subsets of a string and print them grouped by length.
+* **Approach**:
+  * **Backtracking (Include/Exclude)**: At each index, branch into two recursive calls: one that pushes the character to the current string (`curr.push_back`) and recurses, and another that pops the character (`curr.pop_back`) and recurses.
+  * **Ordering**: Collect all subsets in a vector, then iterate from length `0` to `size` to print them sequentially.
+
+### Q12: Integer Set Power Set (`12.c++`)
+* **Problem**: Print all subsets of an integer set, formatted as `{1,2,3}` and grouped by size.
+* **Approach**:
+  * Extends the backtracking power set algorithm to work on an array of integers.
+  * Collects subsets, sorts/filters them by cardinality, and outputs them in structured mathematical set format.
+
+### Q13: String Permutations (`13.c++`)
+* **Problem**: Generate all possible permutations of a given string.
+* **Approach**:
+  * **Swap-based Backtracking**: Swap the current character at `index` with every subsequent character in the string, recurse on `index + 1`, and swap back to restore the original state (backtrack).
 
 ---
 
