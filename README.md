@@ -20,7 +20,9 @@ Below is a summary of the questions solved in this directory.
 | **Q10** | [10.c++](./10.c++) | **String Subsequences (Enclosed)** | Generates and prints all subsequences of a string enclosed in curly braces `{}` recursively. |
 | **Q11** | [11.c++](./11.c++) | **String Power Set** | Generates all subsets of a string using backtracking and groups them by length. |
 | **Q12** | [12.c++](./12.c++) | **Integer Set Power Set** | Generates all subsets of an integer set using backtracking, formatted as sets and grouped by size. |
-| **Q13** | [13.c++](./13.c++) | **String Permutations** | Generates all unique permutations of a string using swap-based recursive backtracking. |
+| **Q13** | [13.c++](./13.c++) | **String Permutations** | Generates all permutations of a string using swap-based recursive backtracking. |
+| **Q14** | [14.c++](./14.c++) | **Unique String Permutations** | Generates unique permutations of a string with duplicates by pruning redundant recursive branches. |
+| **Q15** | [15.c++](./15.c++) | **Letter Combinations of a Phone Number** | Generates all letter combinations representing keypad digits recursively using backtracking. |
 
 ---
 
@@ -101,9 +103,21 @@ Below is a summary of the questions solved in this directory.
   * Collects subsets, sorts/filters them by cardinality, and outputs them in structured mathematical set format.
 
 ### Q13: String Permutations (`13.c++`)
-* **Problem**: Generate all possible permutations of a given string.
+* **Problem**: Generate all possible permutations of a given string (assuming no duplicate characters).
 * **Approach**:
   * **Swap-based Backtracking**: Swap the current character at `index` with every subsequent character in the string, recurse on `index + 1`, and swap back to restore the original state (backtrack).
+
+### Q14: Unique String Permutations (`14.c++`)
+* **Problem**: Generate all unique permutations of a string that contains duplicate characters (e.g., `"aab"`).
+* **Approach**:
+  * **Branch Pruning**: To prevent duplicate permutations at the current level, avoid swapping `input[index]` with the same character value multiple times.
+  * **Redundancy Check**: Before swapping `input[index]` with `input[i]`, verify if `input[i]` has already been placed at position `index` at this level by checking if the character appears in the range `[index, i - 1]`. If it has, skip (prune) this recursive branch.
+
+### Q15: Letter Combinations of a Phone Number (`15.c++`)
+* **Problem**: Given a string containing digits from `2-9` inclusive, return all possible letter combinations that the number could represent based on a phone's keypad.
+* **Approach**:
+  * **Recursive Backtracking**: Use a lookup array `map` where each index contains corresponding characters (e.g., `2 -> "abc"`, `3 -> "def"`).
+  * **Branching**: For the digit at `index`, loop through all mapped characters and recursively invoke `backtrack` for `index + 1`, appending the character to the built combination.
 
 ---
 
