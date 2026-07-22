@@ -3,3 +3,14 @@
 
 # Ignore VS Code directory
 .vscode/
+
+# Ignore Python virtual environments and caches (for the pandas project)
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Ignore temp / duplicate files
+/1
+/20.c++

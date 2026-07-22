@@ -1,11 +1,14 @@
-# DSA Practice (Recursion)
+# DSA Practice (Recursion & Backtracking)
 
-Welcome to the **DSA Practice** repository! This folder contains a collection of Data Structures and Algorithms (DSA) problems solved in C++ using **recursion** and **backtracking**.
+Welcome to the **DSA Practice** repository! This folder contains a collection of Data Structures and Algorithms (DSA) problems solved in C++ using **recursion** and **backtracking**, along with basic study files for Python Pandas.
+
+---
 
 ## 📚 Table of Contents
 
 Below is a summary of the questions solved in this directory.
 
+### 🔵 Recursion Basics
 | Question No. | File Name | Topic / Problem Statement | Description |
 | :---: | :--- | :--- | :--- |
 | **Q1** | [first.c++](./first.c++) | **Sum of Array Elements** | Finds the sum of all elements in an array recursively. |
@@ -14,110 +17,103 @@ Below is a summary of the questions solved in this directory.
 | **Q4** | [four.c++](./four.c++) | **Remove Character 'x'** | Removes all occurrences of the character `'x'` from a character array recursively. |
 | **Q5** | [five.c++](./five.c++) | **Replace Character with String** | Replaces every occurrence of a specified character with a custom string recursively. |
 | **Q6** | [six.c++](./six.c++) | **Remove Consecutive Duplicates** | Removes consecutive duplicate characters from a string (e.g., `abaabaabbbbc` ➔ `ababac`) recursively. |
+
+### 🟡 Combinatorics & Subsets
+| Question No. | File Name | Topic / Problem Statement | Description |
+| :---: | :--- | :--- | :--- |
 | **Q7** | [seven.c++](./seven.c++) | **String Subsequences** | Generates all subsequences of a string recursively (using array storage and direct printing methods). |
-| **Q8** | [8th.c++](./8th.c++) | **Generate Valid Parentheses** | Generates all possible valid combinations of parentheses for a given pair count recursively. |
-| **Q9** | [9.c++](./9.c++) | **Equal a's and b's Permutations** | Generates all possible string permutations containing an equal number of `'a'`s and `'b'`s recursively and counts the total permutations. |
 | **Q10** | [10.c++](./10.c++) | **String Subsequences (Enclosed)** | Generates and prints all subsequences of a string enclosed in curly braces `{}` recursively. |
 | **Q11** | [11.c++](./11.c++) | **String Power Set** | Generates all subsets of a string using backtracking and groups them by length. |
 | **Q12** | [12.c++](./12.c++) | **Integer Set Power Set** | Generates all subsets of an integer set using backtracking, formatted as sets and grouped by size. |
+
+### 🔴 Advanced Backtracking & Permutations
+| Question No. | File Name | Topic / Problem Statement | Description |
+| :---: | :--- | :--- | :--- |
+| **Q8** | [8th.c++](./8th.c++) | **Generate Valid Parentheses** | Generates all possible valid combinations of parentheses for a given pair count recursively. |
+| **Q9** | [9.c++](./9.c++) | **Equal a's and b's Permutations** | Generates all possible string permutations containing an equal number of `'a'`s and `'b'`s recursively and counts the total permutations. |
 | **Q13** | [13.c++](./13.c++) | **String Permutations** | Generates all permutations of a string using swap-based recursive backtracking. |
 | **Q14** | [14.c++](./14.c++) | **Unique String Permutations** | Generates unique permutations of a string with duplicates by pruning redundant recursive branches. |
-| **Q15** | [15.c++](./15.c++) | **Letter Combinations of a Phone Number** | Generates all letter combinations representing keypad digits recursively using backtracking. |
+| **Q15** | [15.c++](./15.c++) | **Letter Combinations (Basic)** | Generates letter combinations representing keypad digits recursively using backtracking. |
+| **Q16** | [16.c++](./16.c++) | **Letter Combinations (Robust)** | Generates letter combinations from phone digits, handling `0` and `1` (which map to no letters) by skipping them. |
+| **Q17** | [17.c++](./17.c++) | **N-Queens Problem** | Finds all valid placements of $N$ queens on an $N \times N$ chessboard such that no two queens attack each other. |
+| **Q18** | [18.c++](./18.c++) | **Rat in a Maze** | Find all unique paths a rat can take to travel from source `(0,0)` to destination `(N-1,N-1)` in a grid. |
+
+### 🐍 Bonus: Python Pandas Practice
+| File Name | Topic | Description |
+| :--- | :--- | :--- |
+| [pandas/main.py](./pandas/main.py) | **Pandas Series Basics** | Initializing 1D Pandas Series from lists and custom index mapping. |
 
 ---
 
-## 🛠️ Detailed Problem Explanations
+## 💡 Recursion & Backtracking Core Concepts (Revision Cheat Sheet)
 
-### Q1: Sum of Array Elements (`first.c++`)
-* **Problem**: Calculate the sum of all integers in a given array.
-* **Approach**: 
-  * **Base Case**: If array size is `0`, return `0`.
-  * **Recursive Step**: Return the first element plus the sum of the remaining array: `a[0] + sum(a + 1, size - 1)`.
+Use these key mental models to quickly review the principles of recursion and backtracking before coding:
 
-### Q2: Check If Array is Sorted (`second.c++`)
-* **Problem**: Determine if the elements of an array are sorted in ascending order.
-* **Approach**:
-  * **Base Case**: If array size is `0` or `1`, it is already sorted (return `1`).
-  * **Recursive Step**: If the first element is greater than the second (`a[0] > a[1]`), return `0`. Otherwise, recursively check the rest of the array: `issorted(a + 1, size - 1)`.
+### 1. The Core Anatomy of Recursion
+Every recursive function requires two main blocks:
+1. **Base Case**: The simplest, smallest input instance where the solution is known directly without recursion. Failing to write a proper base case leads to infinite recursion and **Stack Overflow**.
+2. **Recursive Step**: Reducing the current complex problem into smaller subproblems of the same nature, and combining their results to solve the current instance.
 
-### Q3: Reverse Array (`third.c++`)
-* **Problem**: Reverse the order of elements in an array in-place.
-* **Approach**:
-  * **Base Case**: If size is `0` or `1`, no swap is needed (return).
-  * **Recursive Step**: Swap the first and last element of the current array, and recursively call the function for the middle subarray: `reverse(a + 1, s - 2)`.
+### 2. Backtracking: The "Undo" Pattern
+Backtracking is a systematic search of a state space (tree) to find solutions. It works by making a choice, exploring that path, and then **unmaking the choice (undo/backtrack)** to reset the state before trying the next branch.
+* **Why backtrack?** We share state variables (like `visited` matrices or temporary string buffers) across recursive branches to save memory. Since they are passed by reference, any modification in one branch must be restored so other branches see the clean, original state.
 
-### Q4: Remove Character 'x' (`four.c++`)
-* **Problem**: Remove all occurrences of the character `'x'` from a C-style string.
-* **Approach**:
-  * **Base Case**: If null terminator `\0` is reached, return.
-  * **Recursive Step**: If the current character is `'x'`, shift all characters to the left to overwrite it and recursively check the current position. If it is not `'x'`, move to the next position: `removeX(str + 1)`.
+### 3. State Parameters: Pass-by-Value vs. Pass-by-Reference
+When building paths or combinations:
+* **Pass-by-Value** (e.g., `solve(..., curr + 'D', ...)`):
+  * C++ creates a copy of the string for each recursive branch.
+  * **Benefit**: No manual backtracking is needed because returning from a branch automatically discards that copy.
+* **Pass-by-Reference** (e.g., `vector<vector<int>> &visited`):
+  * All branches share a single copy in memory.
+  * **Requirement**: You **must** manually reset changes after the recursive call (e.g., `visited[row][col] = 0`), otherwise subsequent paths will be incorrectly blocked by old decisions.
 
-### Q5: Replace Character with String (`five.c++`)
-* **Problem**: Replace every occurrence of a specific character in a string with an entire custom string (e.g., replacing `'x'` with `"abc"`).
-* **Approach**:
-  * **Base Case**: If the string is empty, return.
-  * **Recursive Step**: If the first character matches the target character, shift all elements to the right to make space for the new string, copy the string in, and recurse on the remainder.
+### 4. Pruning Branches for Optimization
+"Pruning" is the process of detecting early on that a recursive branch cannot lead to a valid or unique solution, and avoiding calling recursion on it:
+* **Unique Permutations (Q14)**: We prune by checking if a character value has already been swapped into the current index position at this level.
+* **N-Queens (Q17)**: We prune by checking `ispossible()` before placing a queen, rather than completing the board and checking later.
+* **Rat in a Maze (Q18)**: We prune by ensuring the cell is within bounds, not blocked, and not visited yet before making the recursive call.
 
-### Q6: Remove Consecutive Duplicates (`six.c++`)
-* **Problem**: Remove consecutive duplicate characters from a string so that no two adjacent characters are identical.
-* **Approach**:
-  * **Base Case**: If string length is `0` or `1`, return.
-  * **Recursive Step**: If the first and second characters are the same (`b[0] == b[1]`), shift the rest of the string left to remove the duplicate and recurse on the same position. Otherwise, recurse on `b + 1`.
+---
 
-### Q7: String Subsequences (`seven.c++`)
-* **Problem**: Find all subsequences of a given string.
-* **Approach**:
-  * **Method 1 (Array Storage)**: Recursively finds subsequences of the substring from index `1` to the end, then doubles the result size by prepending the first character to each subsequence.
-  * **Method 2 (Direct Printing)**: Space-optimized recursion. At each character, branch into two decisions: include it in the subsequence built so far (`tillnow + curr[0]`), or exclude it (`tillnow`).
+## 🛠️ Detailed Problem Explanations (Q10 - Q18)
 
-### Q8: Generate Valid Parentheses (`8th.c++`)
-* **Problem**: Generate all valid combinations of `n` pairs of open `(` and close `)` parentheses.
-* **Approach**:
-  * **State Tracking**: Keep track of remaining open and close parentheses.
-  * **Rule 1**: Add an open parenthesis `(` if any are left (`open > 0`).
-  * **Rule 2**: Add a close parenthesis `)` only if it does not violate validity (`open < close` which means more open parenthesis have been used than close parenthesis so far).
-
-### Q9: Equal a's and b's Permutations (`9.c++`)
-* **Problem**: Generate all strings containing a specified equal number of `'a'`s and `'b'`s, and count the total number of permutations.
-* **Approach**:
-  * **Permutation Tracking**: Pass a `count` variable by reference (`int &count`) to increment it each time a complete string is successfully printed.
-  * **Base Case**: If no `'a'`s or `'b'`s are left to place (`n1 == 0 && n2 == 0`), print the built string and increment `count++`.
-  * **Recursive Step**: Make recursive calls placing an `'a'` if any are left (`n1 > 0`), and a `'b'` if any are left (`n2 > 0`), passing the reference to `count` through each call.
+*(Refer to earlier revisions or comments inside files for Q1 to Q9)*
 
 ### Q10: String Subsequences - Enclosed (`10.c++`)
-* **Problem**: Generate all subsequences of a string and format them inside curly braces `{}`.
-* **Approach**:
-  * Uses recursive array storage (similar to Q7 Method 1).
-  * In the driver program, outputs all generated subsequences wrapped in curly braces like `{abc}`.
+* **Problem**: Print all subsequences of a string wrapped in curly braces `{}`.
+* **Approach**: Uses recursive array storage (Method 1 of Q7). When the base case returns size, the driver program iterates and wraps each output.
 
 ### Q11: String Power Set (`11.c++`)
-* **Problem**: Generate all subsets of a string and print them grouped by length.
-* **Approach**:
-  * **Backtracking (Include/Exclude)**: At each index, branch into two recursive calls: one that pushes the character to the current string (`curr.push_back`) and recurses, and another that pops the character (`curr.pop_back`) and recurses.
-  * **Ordering**: Collect all subsets in a vector, then iterate from length `0` to `size` to print them sequentially.
+* **Problem**: Print all subsets of a string grouped by size.
+* **Approach**: Standard backtracking include/exclude. Uses `curr.push_back()` and `curr.pop_back()` to build paths, then displays them sequentially by length.
 
 ### Q12: Integer Set Power Set (`12.c++`)
-* **Problem**: Print all subsets of an integer set, formatted as `{1,2,3}` and grouped by size.
-* **Approach**:
-  * Extends the backtracking power set algorithm to work on an array of integers.
-  * Collects subsets, sorts/filters them by cardinality, and outputs them in structured mathematical set format.
+* **Problem**: Print all subsets of an integer array formatted as mathematical sets `{1, 2}`.
+* **Approach**: Extends string power set recursion to integer arrays. Formats output with commas and curly braces.
 
 ### Q13: String Permutations (`13.c++`)
-* **Problem**: Generate all possible permutations of a given string (assuming no duplicate characters).
-* **Approach**:
-  * **Swap-based Backtracking**: Swap the current character at `index` with every subsequent character in the string, recurse on `index + 1`, and swap back to restore the original state (backtrack).
+* **Problem**: Generate all permutations of a string.
+* **Approach**: Swaps element at current `index` with every element to its right, recurses, and swaps back to backtrack.
 
 ### Q14: Unique String Permutations (`14.c++`)
-* **Problem**: Generate all unique permutations of a string that contains duplicate characters (e.g., `"aab"`).
-* **Approach**:
-  * **Branch Pruning**: To prevent duplicate permutations at the current level, avoid swapping `input[index]` with the same character value multiple times.
-  * **Redundancy Check**: Before swapping `input[index]` with `input[i]`, verify if `input[i]` has already been placed at position `index` at this level by checking if the character appears in the range `[index, i - 1]`. If it has, skip (prune) this recursive branch.
+* **Problem**: Generate unique permutations of a string with duplicate characters (e.g., `"aab"`).
+* **Approach**: Prevents duplicate swaps at the same level by checking if the character at `i` has already been placed at `index` (by searching `[index, i-1]`).
 
-### Q15: Letter Combinations of a Phone Number (`15.c++`)
-* **Problem**: Given a string containing digits from `2-9` inclusive, return all possible letter combinations that the number could represent based on a phone's keypad.
-* **Approach**:
-  * **Recursive Backtracking**: Use a lookup array `map` where each index contains corresponding characters (e.g., `2 -> "abc"`, `3 -> "def"`).
-  * **Branching**: For the digit at `index`, loop through all mapped characters and recursively invoke `backtrack` for `index + 1`, appending the character to the built combination.
+### Q15: Letter Combinations of a Phone Number - Basic (`15.c++`)
+* **Problem**: Get keypad letter combinations from digit string.
+* **Approach**: Recursively loops through characters corresponding to `digits[index]` and appends to `curr`.
+
+### Q16: Letter Combinations of a Phone Number - Robust (`16.c++`)
+* **Problem**: Generate letter combinations, handling digits `0` and `1` (which have no letters).
+* **Approach**: If `var.size() == 0`, skips the digit entirely and recurses on `index + 1` without adding letters.
+
+### Q17: N-Queens Problem (`17.c++`)
+* **Problem**: Place $N$ non-attacking queens on a chessboard.
+* **Approach**: Column-by-column placement. Checks same row, upper diagonal, and lower diagonal to the left. Backtracks by setting `board[row][col] = 0`.
+
+### Q18: Rat in a Maze (`18.c++`)
+* **Problem**: Find all paths from `(0,0)` to `(N-1,N-1)` in a grid.
+* **Approach**: Recursive search in 4 directions (**D, U, L, R**). Tracks path sequence in a string `curr`. Backtracks by resetting `visited[row][col] = 0`.
 
 ---
 
