@@ -1,6 +1,6 @@
 # DSA Practice (Recursion & Backtracking)
 
-Welcome to the **DSA Practice** repository! This folder contains a collection of Data Structures and Algorithms (DSA) problems solved in C++ using **recursion** and **backtracking**, along with basic study files for Python Pandas.
+Welcome to the **DSA Practice** repository! This folder contains a collection of Data Structures and Algorithms (DSA) problems solved in C++ using **recursion** and **backtracking**, along with two-pointer/array problems from LeetCode and basic study files for Python Pandas.
 
 ---
 
@@ -37,6 +37,12 @@ Below is a summary of the questions solved in this directory.
 | **Q16** | [16.c++](./16.c++) | **Letter Combinations (Robust)** | Generates letter combinations from phone digits, handling `0` and `1` (which map to no letters) by skipping them. |
 | **Q17** | [17.c++](./17.c++) | **N-Queens Problem** | Finds all valid placements of $N$ queens on an $N \times N$ chessboard such that no two queens attack each other. |
 | **Q18** | [18.c++](./18.c++) | **Rat in a Maze** | Find all unique paths a rat can take to travel from source `(0,0)` to destination `(N-1,N-1)` in a grid. |
+
+### 🟠 Array & Two-Pointer Problems (LeetCode)
+| Problem No. | Folder Name | Topic / Problem Statement | Description |
+| :---: | :--- | :--- | :--- |
+| **LC 75** | [75-sort-colors](./75-sort-colors/) | **Sort Colors** | Sorts an array with colors red, white, and blue in-place in a single pass (Dutch National Flag algorithm). |
+| **LC 283** | [283-move-zeroes](./283-move-zeroes/) | **Move Zeroes** | Moves all `0`s in an array to the end in-place while keeping relative order of other elements. |
 
 ### 🐍 Bonus: Python Pandas Practice
 | File Name | Topic | Description |
