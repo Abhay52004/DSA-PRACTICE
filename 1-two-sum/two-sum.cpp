@@ -5,12 +5,11 @@ public:
         int n = nums.size();
         for(int i = 0 ; i<n ; i++){
             int com = target - nums[i];
-            if(pq.count(com)){
-                return {pq[com],i};
-            }
+            if(pq.count(com))
+            return {pq[com],i};
             pq[nums[i]] = i;
-
         }
         return {};
+
     }
 };
